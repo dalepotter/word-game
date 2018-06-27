@@ -10,10 +10,12 @@ def play_game():
     # Generate the number of required words
     num_words = num_players
 
+    word_types = get_word_types_array(num_words)
+
     # Iterate over the number of required words
     all_words = list()
     for player_num in range(1, num_words+1):
-        new_word = get_word(player_num)
+        new_word = get_word(player_num, word_types)
         all_words.append(new_word)
 
     # Output the sentance
@@ -27,8 +29,20 @@ def play_game():
 
     return
 
+
+def get_word_types_array(num_words):
+    if num_words == 2:
+        return ['noun', 'verb']
+    if num_words == 3:
+        return ['noun', 'transitive verb', 'noun']
+    if num_words == 4:
+        return ['adjective', 'noun', 'transitive verb', 'noun']
+    if num_words == 5:
+        return ['adjective', 'noun', 'transitive verb', 'adjective', 'noun']
+
+
 def get_num_players():
-    num_players = input("Enter the number of players (as an integer)...")
+    num_players = input("Enter the number of players (as an integer, 2-5)...")
 
     try:
         num_players_as_int = int(num_players)
@@ -38,8 +52,7 @@ def get_num_players():
     finally:
         return num_players_as_int
 
-def get_word(player_num):
-    word_types = ['noun','verb']
+def get_word(player_num, word_types):
     word = input("[Player {}]: Enter a {}...".format(player_num, word_types[player_num - 1]))
 
     return word
