@@ -29,12 +29,12 @@ def get_num_players():
     num_players = input("Enter the number of players (as an integer)...")
 
     try:
-        _ = int(num_players)
+        num_players_as_int = int(num_players)
     except Exception:
         #FIXME Error catching does not seem to work :-(
         raise ValueError("{} is not a valid integer. Please restart!".format(num_players))
     finally:
-        return num_players
+        return num_players_as_int
 
 def get_word(player_num):
     word = input("[Player {}]: Enter a word...".format(player_num))
