@@ -4,15 +4,21 @@ def play_game():
     num_players = get_num_players()
 
     # Generate the number of required words
+    num_words = 5
 
-    # Construct the number of words for each user
+    # Iterate over the number of required words
+    all_words = list()
+    for player_num in range(1, num_words+1):
+        new_word = get_word(player_num)
+        all_words.append(new_word)
 
     # Output the sentance
+    print(" ".join(all_words))
 
     # Generate a google image link
 
     # Open the link
-    import pdb; pdb.set_trace()
+
     return
 
 def get_num_players():
@@ -25,6 +31,12 @@ def get_num_players():
         raise ValueError("{} is not a valid integer. Please restart!".format(num_players))
     finally:
         return num_players
+
+def get_word(player_num):
+    word = input("[Player {}]: Enter a word...".format(player_num))
+
+    return word
+
 
 if __name__ == "__main__":
     play_game()
