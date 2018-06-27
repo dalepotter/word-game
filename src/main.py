@@ -1,3 +1,5 @@
+from google_image_search import google_image_search
+
 
 def play_game():
     # Determine number of players
@@ -13,11 +15,13 @@ def play_game():
         all_words.append(new_word)
 
     # Output the sentance
-    print(" ".join(all_words))
+    final_sentence = " ".join(all_words)
+    print(final_sentence)
 
     # Generate a google image link
 
     # Open the link
+    google_image_search(final_sentence)
 
     return
 
