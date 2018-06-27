@@ -6,7 +6,7 @@ def play_game():
     num_players = get_num_players()
 
     # Generate the number of required words
-    num_words = 5
+    num_words = num_players
 
     # Iterate over the number of required words
     all_words = list()
