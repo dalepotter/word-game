@@ -1,3 +1,5 @@
+import time
+
 from google_image_search import google_image_search
 
 
@@ -16,9 +18,9 @@ def play_game():
 
     # Output the sentance
     final_sentence = " ".join(all_words)
-    print(final_sentence)
+    print('The', final_sentence)
 
-    # Generate a google image link
+    time.sleep(2)
 
     # Open the link
     google_image_search(final_sentence)
@@ -37,7 +39,8 @@ def get_num_players():
         return num_players_as_int
 
 def get_word(player_num):
-    word = input("[Player {}]: Enter a word...".format(player_num))
+    word_types = ['noun','verb']
+    word = input("[Player {}]: Enter a {}...".format(player_num, word_types[player_num - 1]))
 
     return word
 
